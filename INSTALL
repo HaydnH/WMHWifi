@@ -1,0 +1,14 @@
+Installation instructions for wmHWifi.
+
+Requirements
+--------------------------------------------------------------
+wmHWifi requires the Xpm library and cairo.
+
+Installation
+--------------------------------------------------------------
+1) tar -xvfz wmHWifi-x.xx.tar.gz
+2) cd wmHWifi-x.xx/src/
+3) make 
+4) make install (must be root) 
+5) wmHWifi & (or 'wmHWifi -h' for help, or 'man wmHWifi' for the man page)
+

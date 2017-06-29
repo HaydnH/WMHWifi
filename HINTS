@@ -1,0 +1,55 @@
+Hints for wmHWifi
+
+Generic.
+--------
+% wmHWifi -h
+
+wmHWifi version: 1.00
+
+usage: wmHWifi [-f <font>] [-fs <size>] [-sb] [-sf] [-ls2 <percent>] [-ls3 <percent>]
+               [-ls4 <percent>] [-ls5 <percent] [-eb <Color>] [-ef <Color>]
+               [-lb <Color>] [-lfg <Color>] [-lfs1 <Color>] [-lfe1 <Color>]
+               [-lfs2 <Color>] [-lfe2 <Color>] [-lfs3 <Color>] [-lfe3 <Color>]
+               [-lfs4 <Color>] [-lfe4 <Color>] [-lfs5 <Color>] [-lfe5 <Color>]
+               [-e <Command>] [-n] [-w] [-c <Command>] [-h]
+
+   -f <font>       Cairo Font to use for ESSID (Default: Arial)
+   -fs <size>      Font size to use for ESSID (Default: 14)
+   -sb             Use "bounce" scrolling if ESSID text is too wide (Default)
+   -sf             Use "full" scrolling if the ESSID text is too wide
+   -ls2            Percent at which to change wifi logo color (Default: 20)
+   -ls3            Percent at which to change wifi logo color (Default: 40)
+   -ls4            Percent at which to change wifi logo color (Default: 60)
+   -ls5            Percent at which to change wifi logo color (Default: 80)
+   -eb <Color>     ESSID area background color (Default: #dsdae4)
+   -ef <Color>     ESSID area text color (Default: #181818)
+   -lb <Color>     Wifi logo area background color (Default: #d2dae4)
+   -lfg <Color>    Wifi logo area non-colored bar color (Default: #bbbbbb)
+   -lfs1 <Color>   Wifi logo gradient start color when signal <20% (Default: #d43b3b)
+   -lfe1 <Color>   Wifi logo gradient end color when signal <20% (Default: #e89494)
+   -lfs2 <Color>   Wifi logo gradient start color when signal <40% (Default: #d4991f)
+   -lfe2 <Color>   Wifi logo gradient end color when signal <40% (Default: #ebc782)
+   -lfs3 <Color>   Wifi logo gradient start color when signal <60% (Default: #c2ab00)
+   -lfe3 <Color>   Wifi logo gradient end color when signal <60% (Default: #dbc200)
+   -lfs4 <Color>   Wifi logo gradient start color when signal <80% (Default: #7da136)
+   -lfe4 <Color>   Wifi logo gradient end color when signal <80% (Default: #bad687)
+   -lfs5 <Color>   Wifi logo gradient start color when signal >80% (Default: #1f8a21)
+   -lfe5 <Color>   Wifi logo gradient end color when signal >80% (Default: #70cc45)
+   -e <Command>    Command to execute via double click of mouse button 1
+   -n              Use Network Manager (nmcli) to detrmine Wifi info (Default)
+   -w              Use wicd (wicd-cli) to detrmine Wifi info
+   -c <Command>    Command to run for Wifi quality (should return "NN ESSID" format)
+   -h              Display help screen
+
+Example: wmHWifi -eb #111111 -ef #000011 -e "gnome-control-center network"
+
+
+
+WindowMaker.
+------------
+In WindowMaker simply drag and drop the wmHWifi App on the WindowMaker Dock or Clip.
+
+
+
+
+

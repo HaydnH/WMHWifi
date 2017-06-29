@@ -1,0 +1,100 @@
+.TH wmHWifi 1 "21 JUNE 2017"
+.SH NAME
+wmHWifi \- Wifi Window Maker Dockapp
+.SH SYNOPSIS
+.B wmHWifi
+[-f <font>] [-fs <size>] [-sb] [-sf] [-ls2 <percent>] [-ls3 <percent>] [-ls4 <percent>] [-ls5 <percent] [-eb <Color>] [-ef <Color>] [-lb <Color>] [-lfg <Color>] [-lfs1 <Color>] [-lfe1 <Color>] [-lfs2 <Color>] [-lfe2 <Color>] [-lfs3 <Color>] [-lfe3 <Color>] [-lfs4 <Color>] [-lfe4 <Color>] [-lfs5 <Color>] [-lfe5 <Color>] [-e <Command>] [in] [-w] [-c <Command] [-h]
+.SH DESCRIPTION
+.PP
+wmHWifi is a Wifi monitor for use as a Window Maker dockapp.
+.SH OPTIONS
+.TP
+.B \-f <font>
+Font to use for the ESSID text, can be any font recognised by cairo_select_font_face().
+.TP
+.B \-fs <size>
+Font size for the ESSID text. (Default: 14)
+.TP
+.B \-sb
+Use "bounce" scrolling if the ESSID text is wider that the dockapp. Bounce scrolling scrolls the ESSID text left until the right side of the text is fully visible, then scrolls right until the left side is fully visbile and repeats. (Default)
+.TP
+.B \-sf
+Use "full" scrolling if the ESSID text is wider than the dockapp. Full scrolling scrolls the ESSID text left until the text is no longer visible, then the left extent of the text starts again from the right of the window.
+.TP
+.B \-ls2 <Percent>
+By default, the Wifi logo changes color at 0%, 20%, 40%, 60% and 80% steps. The -ls2 flag allows you to change the percentage of the second step to a value of your choice. Note, there is no -ls1 flag as the 0% -> ls2 range always starts at 0%. (Default: 20)
+.TP
+.B \-ls3 <Percent>
+See -ls2, -ls3 allows you to change the third step to a value of your choice. (Default: 40)
+.TP
+.B \-ls4 <Percent>
+See -ls2, -ls4 allows you to change the third step to a value of your choice. (Default: 60)
+.TP
+.B \-ls5 <Percent>
+See -ls2, -ls5 allows you to change the third step to a value of your choice. (Default: 80)
+.TP
+.B \-eb <Color>
+Change the background color for the ESSID area. (Default: #d2dae4)
+.TP
+.B \-ef <Color>
+Change the font color for the ESSID text. (Default: #181818)
+.TP
+.B \-lb <Color>
+Change the background color for the Wifi Logo area. (Default: #d2dae4)
+.TP
+.B \-lfg <Color>
+When the Wifi signal strength is below the ls4 step (60% using default settings) the top Wifi bars will show grey. This flag allows you to change the grey bars to a value of your choice. (Default: #bbbbbb)
+.TP
+.B \-lfs1 <Color>
+The color of the Wifi logo is a radial gradient from the center (bottom) of the logo to the outside (top). The -lf{s,e}{1-5} flags allow you to change the start and end colors of the gradient for each Wifi quality step set with the corresponding -lfs{2-5} flags. For example, using the default Wifi signal steps, using '-lfs1 "#ff0000" -lfe1 "#0000ff"' would change the logo to a red->blue gradient when the Wifi signal strength is between 0 & 20%. (Default: #d43b3b)
+.TP
+.B \-lfe1 <Color>
+See \-lfs1, changes the gradient end color for the first Wifi signal strength step. (Default: #e89494)
+.TP
+.B \-lfs2 <Color>
+See \-lfs1, changes the gradient start color for the second Wifi signal strength step. (Default: #d4991f)
+.TP
+.B \-lfe2 <Color>
+See \-lfs1, changes the gradient end color for the second Wifi signal strength step. (Default: #ebc782)
+.TP
+.B \-lfs3 <Color>
+See \-lfs1, changes the gradient start color for the third Wifi signal strength step. (Default: #c2ab00)
+.TP
+.B \-lfe3 <Color>
+See \-lfs1, changes the gradient end color for the third Wifi signal strength step. (Default: #dbc200)
+.TP
+.B \-lfs4 <Color>
+See \-lfs1, changes the gradient start color for the forth Wifi signal strength step. (Default: #7da136)
+.TP
+.B \-lfe4 <Color>
+See \-lfs1, changes the gradient end color for the forth Wifi signal strength step. (Default: #bad687)
+.TP
+.B \-lfs5 <Color>
+See \-lfs1, changes the gradient start color for the fifth Wifi signal strength step. (Default: #1f8a21)
+.TP
+.B \-lfe5 <Color>
+See \-lfs1, changes the gradient end color for the fifth Wifi signal strength step. (Default: #70cc45)
+.TP
+.B \-e <Command>
+Command to execute when the dockapp receives a double click of mouse button 1.
+.TP
+.B \-n
+Use Network Manager (nmcli) to detrmine Wifi info. (Default)
+.TP
+.B \-w
+Use Wicd (wicd-cli) to detrmine Wifi info.
+.TP
+.B \-c <Command>
+If your system does not use Network Manager or wicd, a custom command can be given. The command should return a string containing the signal strength as an integer in column 1, any further columns will be interpereted as the ESSID. e.g: "78 My ESSID". For testing purposes, a command such as `wmHWifi -c "echo '10 MyESSID'"` can be given. When not connected an empty string may br provided. All commands in a pipe must return an exit code of 0.
+
+\fBWARNING: \fRThere is no checking for dangerous commands, use of -c as root is disabled for this reason. 
+
+NOTE: If you do use a -c command, please email it to the address below so that it can be included in a future version.
+.TP
+.B \-h 
+Show the usage page.
+.SH BUGS
+Please report bugs at: https://github.com/HaydnH/WMHWifi/issues
+.SH AUTHOR
+Haydn Haines <haydnhdev@gmail.com>
+
