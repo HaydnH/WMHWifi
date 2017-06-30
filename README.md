@@ -7,7 +7,8 @@ wmHWifi is a Wifi connection monitor based on code from wmCalClock.
 
 
 ## <u>Files</u>
-| --- | --- | --- |
+| File | Description |
+| --- | --- |
 | **README.md**		| This file. |
 | **INSTALL**		| Installation instructions. |
 | **HINTS** 		| Hints about what you can do with wmHWifi. |
