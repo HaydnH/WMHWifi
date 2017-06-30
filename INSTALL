@@ -2,7 +2,17 @@ Installation instructions for wmHWifi.
 
 Requirements
 --------------------------------------------------------------
-wmHWifi requires the Xpm library and cairo.
+wmHWifi requires the following libraries:
+
+X11/X.h (xorg-x11-proto-devel)
+X11/xpm.h (libXpm-devel)
+X11/extensions/shape.h (libXext-devel)
+cairo.h (cairo-devel)
+
+DNF Command for Fedora users:
+
+  # dnf install xorg-x11-proto-devel libXpm-devel libXext-devel cairo-devel
+
 
 Installation
 --------------------------------------------------------------
