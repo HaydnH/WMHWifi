@@ -7,13 +7,13 @@ wmHWifi is a Wifi connection monitor based on code from wmCalClock.
 
 
 ## <u>Files</u>
-* **README.md**		This file.
-* **INSTALL**		Installation instructions.
-* **HINTS** 		Hints about what you can do with wmHWifi.
-* **BUGS**		Bug reports
-* **CHANGES** 		Change history.
-* **COPYING**		GNU General Public License Version 2.
-* **TODO**		Wish list.
+| **README.md**		| This file. |
+| **INSTALL**		| Installation instructions. |
+| **HINTS** 		| Hints about what you can do with wmHWifi. |
+| **BUGS**		| Bug reports. |
+| **CHANGES** 		| Change history. |
+| **COPYING**		| GNU General Public License Version 2. |
+| **TODO**		| Wish list. |
 	
 
 ## <u>Copyright</u>
