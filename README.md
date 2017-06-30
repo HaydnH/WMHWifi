@@ -1,4 +1,4 @@
-## <u>wmHWifi-1.00 release</u>
+## wmHWifi-1.00 release
 Author: Haydn Haines
 		
   
