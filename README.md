@@ -3,7 +3,7 @@ Author: Haydn Haines
 		
   
 ## Description
-wmHWifi is a Wifi connection monitor based on code from wmCalClock.
+wmHWifi is a Wondow Maker dockapp to monitor your Wifi connection based on code from wmCalClock.
 
 
 ## Files
