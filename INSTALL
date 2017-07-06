@@ -4,21 +4,21 @@ Requirements
 --------------------------------------------------------------
 wmHWifi requires the following libraries:
 
-X11/X.h (xorg-x11-proto-devel)
-X11/xpm.h (libXpm-devel)
-X11/extensions/shape.h (libXext-devel)
-cairo.h (cairo-devel)
+    X11/X.h (xorg-x11-proto-devel)
+    X11/xpm.h (libXpm-devel)
+    X11/extensions/shape.h (libXext-devel)
+    cairo.h (cairo-devel)
 
 DNF Command for Fedora users:
 
-  # dnf install xorg-x11-proto-devel libXpm-devel libXext-devel cairo-devel
+    # dnf install xorg-x11-proto-devel libXpm-devel libXext-devel cairo-devel
 
 
 Installation
 --------------------------------------------------------------
-1) git clone https://github.com/HaydnH/wmHWifi.git
-2) cd wmHWifi/src
-3) make
-4) make install (must be root)
-5) wmHWifi & (or 'wmHWifi -h' for help, or 'man wmHWifi' for the man page)
+    1) git clone https://github.com/HaydnH/wmHWifi.git
+    2) cd wmHWifi/src
+    3) make
+    4) make install (must be root)
+    5) wmHWifi & (or 'wmHWifi -h' for help, or 'man wmHWifi' for the man page)
 
