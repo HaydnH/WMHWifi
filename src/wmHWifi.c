@@ -75,7 +75,7 @@ char    wifiCmd[1024] = "nmcli -t --fields \"ACTIVE,SIGNAL,SSID\" dev wifi |awk 
 char    TimeColor[30] = "#000000", BackgroundColor[30] = "#181818";
 int     wqi = 0;
 char    essid[40];
-char	efont[30] = "Arial";
+char	efont[30] = "Arial Narrow";
 int	fs = 14, st = 0, sd = 0, eX = 14, ss = 0, ws2 = 20, ws3 = 40, ws4 = 60, ws5 = 80;
 
 PatCol  efg, wbg, ebg, wfgg, wfgs, wfge, wfgs1, wfge1, wfgs2, wfge2, wfgs3, wfge3, wfgs4, wfge4, wfgs5, wfge5;
