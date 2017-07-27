@@ -83,12 +83,15 @@ PatCol  efg, wbg, ebg, wfgg, wfgs, wfge, wfgs1, wfge1, wfgs2, wfge2, wfgs3, wfge
 
 // Function to convert hex color to rgb values
 void h2dCol(PatCol *col) {
-  char hCol[2];
+  char hCol[3]; 
   strncpy(hCol, col->h+1, 2);
+  hCol[2] = '\0';
   col->r = strtol(hCol, NULL, 16)/255.0;
   strncpy(hCol, col->h+3, 2);
+  hCol[2] = '\0';
   col->g = strtol(hCol, NULL, 16)/255.0;
   strncpy(hCol, col->h+5, 2);
+  hCol[2] = '\0';
   col->b = strtol(hCol, NULL, 16)/255.0;
 }
 
