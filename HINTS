@@ -4,7 +4,7 @@ Generic.
 --------
 % wmHWifi -h
 
-wmHWifi version: 1.00
+wmHWifi version: 1.01
 
 usage: wmHWifi [-f <font>] [-fs <size>] [-sb] [-sf] [-ls2 <percent>] [-ls3 <percent>]
                [-ls4 <percent>] [-ls5 <percent] [-eb <Color>] [-ef <Color>]

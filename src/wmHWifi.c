@@ -23,6 +23,9 @@
  *
  *	Version 1.00  -	released June 21st, 2017
  *
+ * 	Version 1.01  - Fixed an issue preventing Cairo drawing due to non-teminated
+                        colour strings. (2017-07-27)
+
  */
 
 // Includes
@@ -49,7 +52,7 @@
 
 // Delay between refreshes (in microseconds) 
 #define DELAY 500000L
-#define WMHWIFI_VERSION "1.00"
+#define WMHWIFI_VERSION "1.01"
 
 // Color struct, h = hex (#000000), rgb components in range 0-1.
 struct patCol {
