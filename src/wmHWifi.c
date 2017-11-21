@@ -54,7 +54,7 @@
 #define DELAY 500000L
 #define WMHWIFI_VERSION "1.01"
 
-// Color struct, h = hex (#000000), rgb components in range 0-1.
+// Color struct, h = hex (000000), rgb components in range 0-1.
 struct patCol {
   char  h[7];
   float r,g,b;
@@ -87,13 +87,13 @@ PatCol  efg, wbg, ebg, wfgg, wfgs, wfge, wfgs1, wfge1, wfgs2, wfge2, wfgs3, wfge
 // Function to convert hex color to rgb values
 void h2dCol(PatCol *col) {
   char hCol[3]; 
-  strncpy(hCol, col->h+1, 2);
+  strncpy(hCol, col->h, 2);
   hCol[2] = '\0';
   col->r = strtol(hCol, NULL, 16)/255.0;
-  strncpy(hCol, col->h+3, 2);
+  strncpy(hCol, col->h+2, 2);
   hCol[2] = '\0';
   col->g = strtol(hCol, NULL, 16)/255.0;
-  strncpy(hCol, col->h+5, 2);
+  strncpy(hCol, col->h+4, 2);
   hCol[2] = '\0';
   col->b = strtol(hCol, NULL, 16)/255.0;
 }
@@ -301,20 +301,20 @@ int main(int argc, char *argv[]) {
   cairo_font_options_t	*fopts;
 
   // Default Colors
-  strcpy(wbg.h, "#d2dae4");
-  strcpy(ebg.h, "#d2dae4");
-  strcpy(efg.h, "#181818");
-  strcpy(wfgg.h, "#bbbbbb");
-  strcpy(wfgs1.h, "#d43b3b");
-  strcpy(wfgs2.h, "#d4991f");
-  strcpy(wfgs3.h, "#c2ab00");
-  strcpy(wfgs4.h, "#7da136");
-  strcpy(wfgs5.h, "#1f8a21");
-  strcpy(wfge1.h, "#e89494");
-  strcpy(wfge2.h, "#ebc782");
-  strcpy(wfge3.h, "#dbc200");
-  strcpy(wfge4.h, "#bad687");
-  strcpy(wfge5.h, "#70cc45");
+  strcpy(wbg.h, "d2dae4");
+  strcpy(ebg.h, "d2dae4");
+  strcpy(efg.h, "181818");
+  strcpy(wfgg.h, "bbbbbb");
+  strcpy(wfgs1.h, "d43b3b");
+  strcpy(wfgs2.h, "d4991f");
+  strcpy(wfgs3.h, "c2ab00");
+  strcpy(wfgs4.h, "7da136");
+  strcpy(wfgs5.h, "1f8a21");
+  strcpy(wfge1.h, "e89494");
+  strcpy(wfge2.h, "ebc782");
+  strcpy(wfge3.h, "dbc200");
+  strcpy(wfge4.h, "bad687");
+  strcpy(wfge5.h, "70cc45");
 
   // Parse any command line arguments.
   ParseCMDLine(argc, argv);
@@ -418,17 +418,17 @@ int main(int argc, char *argv[]) {
 }
 
 // Function to check a valid #000000 color is provided
-void valid_color(char argv[10], char ccol[7]) {
-  char tcol[6];
+void valid_color(char argv[10], char ccol[6]) {
+  //char tcol[6];
   if (strcmp(ccol, "missing") == 0 ||ccol[0] == '-' ) {
-    fprintf(stderr, "ERROR: No color found following %s flag, must have quotes or escaped #.\n", argv);
+    fprintf(stderr, "ERROR: No color found following %s flag.\n", argv);
     print_usage();
     exit(-1);
   }
 
-  strcpy(tcol,ccol+1);
-  if (strlen(ccol) != 7 || tcol[strspn(tcol, "0123456789abcdefABCDEF")] != 0) {
-    fprintf(stderr, "ERROR: Invalid color following %s flag, should be valid hex \"#000000\" format.\n", argv);
+  //strcpy(tcol,ccol+1);
+  if (strlen(ccol) != 6 || ccol[strspn(ccol, "0123456789abcdefABCDEF")] != 0) {
+    fprintf(stderr, "ERROR: Invalid color following %s flag, should be valid hex \"000000\" format.\n", argv);
     print_usage();
     exit(-1);
   }
@@ -611,26 +611,26 @@ void print_usage(){
     printf("   -ls3            Percent at which to change wifi logo color (Default: 40)\n");
     printf("   -ls4            Percent at which to change wifi logo color (Default: 60)\n");
     printf("   -ls5            Percent at which to change wifi logo color (Default: 80)\n");
-    printf("   -eb <Color>     ESSID area background color (Default: #dsdae4)\n");
-    printf("   -ef <Color>     ESSID area text color (Default: #181818)\n");
-    printf("   -lb <Color>     Wifi logo area background color (Default: #d2dae4)\n");
-    printf("   -lfg <Color>    Wifi logo area non-colored bar color (Default: #bbbbbb)\n");
-    printf("   -lfs1 <Color>   Wifi logo gradient start color when signal <20%% (Default: #d43b3b)\n");
-    printf("   -lfe1 <Color>   Wifi logo gradient end color when signal <20%% (Default: #e89494)\n");
-    printf("   -lfs2 <Color>   Wifi logo gradient start color when signal <40%% (Default: #d4991f)\n");
-    printf("   -lfe2 <Color>   Wifi logo gradient end color when signal <40%% (Default: #ebc782)\n");
-    printf("   -lfs3 <Color>   Wifi logo gradient start color when signal <60%% (Default: #c2ab00)\n");
-    printf("   -lfe3 <Color>   Wifi logo gradient end color when signal <60%% (Default: #dbc200)\n");
-    printf("   -lfs4 <Color>   Wifi logo gradient start color when signal <80%% (Default: #7da136)\n");
-    printf("   -lfe4 <Color>   Wifi logo gradient end color when signal <80%% (Default: #bad687)\n");
-    printf("   -lfs5 <Color>   Wifi logo gradient start color when signal >80%% (Default: #1f8a21)\n");
-    printf("   -lfe5 <Color>   Wifi logo gradient end color when signal >80%% (Default: #70cc45)\n");
+    printf("   -eb <Color>     ESSID area background color (Default: dsdae4)\n");
+    printf("   -ef <Color>     ESSID area text color (Default: 181818)\n");
+    printf("   -lb <Color>     Wifi logo area background color (Default: d2dae4)\n");
+    printf("   -lfg <Color>    Wifi logo area non-colored bar color (Default: bbbbbb)\n");
+    printf("   -lfs1 <Color>   Wifi logo gradient start color when signal <20%% (Default: d43b3b)\n");
+    printf("   -lfe1 <Color>   Wifi logo gradient end color when signal <20%% (Default: e89494)\n");
+    printf("   -lfs2 <Color>   Wifi logo gradient start color when signal <40%% (Default: d4991f)\n");
+    printf("   -lfe2 <Color>   Wifi logo gradient end color when signal <40%% (Default: ebc782)\n");
+    printf("   -lfs3 <Color>   Wifi logo gradient start color when signal <60%% (Default: c2ab00)\n");
+    printf("   -lfe3 <Color>   Wifi logo gradient end color when signal <60%% (Default: dbc200)\n");
+    printf("   -lfs4 <Color>   Wifi logo gradient start color when signal <80%% (Default: 7da136)\n");
+    printf("   -lfe4 <Color>   Wifi logo gradient end color when signal <80%% (Default: bad687)\n");
+    printf("   -lfs5 <Color>   Wifi logo gradient start color when signal >80%% (Default: 1f8a21)\n");
+    printf("   -lfe5 <Color>   Wifi logo gradient end color when signal >80%% (Default: 70cc45)\n");
     printf("   -e <Command>    Command to execute via double click of mouse button 1\n");
     printf("   -n              Use Network Manager (nmcli) to detrmine Wifi info (Default)\n");
     printf("   -w              Use wicd (wicd-cli) to detrmine Wifi info\n");
     printf("   -c <Command>    Command to run for Wifi quality (should return \"NN ESSID\" format)\n");
     printf("   -h              Display help screen\n");
-    printf("\nExample: wmHWifi -eb #111111 -ef #000011 -e \"gnome-control-center network\"\n\n");
+    printf("\nExample: wmHWifi -eb 111111 -ef 000011 -e \"gnome-control-center network\"\n\n");
 
 }
 
