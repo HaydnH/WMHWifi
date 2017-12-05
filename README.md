@@ -1,4 +1,4 @@
-## wmHWifi-1.01 release
+## wmHWifi
 Author: Haydn Haines
 		
   
