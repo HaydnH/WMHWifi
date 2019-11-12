@@ -73,7 +73,7 @@ int     GotFirstClick3, GotDoubleClick3;
 int     DblClkDelay;
 int     HasExecute = 0;		/* controls perf optimization */
 char	ExecuteCommand[1024];
-char    wifiCmd[1024] = "nmcli -t --fields \"ACTIVE,SIGNAL,SSID\" dev wifi |awk -F \":\" '/^yes/ {print $2 \" \" $3}'";
+char    wifiCmd[1024] = "nmcli -t --fields \"ACTIVE,SIGNAL,SSID\" dev wifi |awk -F \":\" '/^yes|[0-9]{1-3}:.{1,}$/ {print $2 \" \" $3}'";
 
 char    TimeColor[30] = "#000000", BackgroundColor[30] = "#181818";
 int     wqi = 0;
@@ -645,7 +645,7 @@ void print_usage(){
  */
 void ButtonPressEvent(XButtonEvent *xev){
 
-    char Command[512];
+    char Command[1024];
 
 
     if( HasExecute == 0) return; /* no command specified.  Ignore clicks. */
@@ -668,7 +668,7 @@ void ButtonPressEvent(XButtonEvent *xev){
     if (GotDoubleClick1) {
         GotFirstClick1 = 0;
         GotDoubleClick1 = 0;
-        sprintf(Command, "%s &", ExecuteCommand);
+        sprintf(Command, "%s", ExecuteCommand);
         system(Command);
     }
 
