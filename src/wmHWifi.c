@@ -139,52 +139,54 @@ void getWifiQ() {
 
 // Draw the ESSID area 
 void drawESSID(cairo_t *ctx) {
-  int	eb = 6, sx = 4;
-  cairo_text_extents_t  extents;
+  if (strlen(essid) > 0) {
+    int	eb = 6, sx = 4;
+    cairo_text_extents_t  extents;
 
-  cairo_set_antialias(ctx, CAIRO_ANTIALIAS_NONE);
+    cairo_set_antialias(ctx, CAIRO_ANTIALIAS_NONE);
 
-  // Draw essid background 
-  cairo_set_source_rgb(ctx, ebg.r, ebg.g, ebg.b);
-  cairo_rectangle(ctx, 5, 5, 54, 15);
-  cairo_fill(ctx);
+    // Draw essid background 
+    cairo_set_source_rgb(ctx, ebg.r, ebg.g, ebg.b);
+    cairo_rectangle(ctx, 5, 5, 54, 15);
+    cairo_fill(ctx);
 
-  cairo_set_antialias(ctx, CAIRO_ANTIALIAS_BEST);
+    cairo_set_antialias(ctx, CAIRO_ANTIALIAS_BEST);
 
-  // Calculate the X position of the essid text
-  cairo_text_extents(ctx, essid, &extents);
-  if (extents.width < 54) {
-    eX = winW/2-extents.width/2;
-    ss = 0;
+    // Calculate the X position of the essid text
+    cairo_text_extents(ctx, essid, &extents);
+    if (extents.width < 54) {
+      eX = winW/2-extents.width/2;
+      ss = 0;
 
-  } else {
+    } else {
+      ss = 1;
 
-    ss = 1;
-    // "Bounce" scrolling
-    if (st == 0) {
-      if (eX+extents.width < winW-eb && sd == 0) {
-        sd = 1;
-      } else if (eX > eb && sd == 1) {
-        sd = 0;
-      } else if (sd != 1) {
-        eX = eX-sx;
-      } else {
-        eX = eX+sx;
-      }
-    // "Full" scrolling
-    } else if (st == 1) {
-      if (eX+extents.width < 1) {
-        eX = winW-eb;
-      } else {
-        eX = eX-sx;
+      // "Bounce" scrolling
+      if (st == 0) {
+        if (eX+extents.width < winW-eb && sd == 0) {
+          sd = 1;
+        } else if (eX > eb && sd == 1) {
+          sd = 0;
+        } else if (sd != 1) {
+          eX = eX-sx;
+        } else {
+          eX = eX+sx;
+        }
+      // "Full" scrolling
+      } else if (st == 1) {
+        if (eX+extents.width < 1) {
+          eX = winW-eb;
+        } else {
+          eX = eX-sx;
+        }
       }
     }
-  }
 
-  // Draw essid text
-  cairo_set_source_rgb(ctx, efg.r, efg.g, efg.b);
-  cairo_move_to(ctx, eX, 13-extents.height/2-extents.y_bearing);
-  cairo_show_text(ctx, essid);
+    // Draw essid text
+    cairo_set_source_rgb(ctx, efg.r, efg.g, efg.b);
+    cairo_move_to(ctx, eX, 13-extents.height/2-extents.y_bearing);
+    cairo_show_text(ctx, essid);
+  }
 }
 
 
@@ -560,7 +562,7 @@ void ParseCMDLine(int argc, char *argv[]) {
       HasExecute = 1;
 
     } else if (!strcmp(argv[i], "-n")) {
-      strcpy(wifiCmd,  "nmcli -t --fields \"ACTIVE,SIGNAL,SSID\" dev wifi |awk -F \":\" '/^yes/ {print $2 \" \" $3}'");
+      strcpy(wifiCmd,  "nmcli -t --fields \"ACTIVE,SIGNAL,SSID\" dev wifi |awk -F \":\" '/^yes|[0-9]{1-3}:.{1,}$/ {print $2 \" \" $3}'");
 
     } else if (!strcmp(argv[i], "-w")) {
       strcpy(wifiCmd, "wicd-cli -i |awk '/^Connected to / {gsub(\"%\", \"\"); print $5 \" \" $3}'");
